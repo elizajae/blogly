@@ -18,8 +18,22 @@ content %}
     </div>
   </div>
 
+  <div class="form-check">
+    {% for tag in tags %}
+    <div>
+      <input
+        type="checkbox"
+        value="{{ tag.id }}"
+        id="tag_{{ tag.id }}"
+        name="tags"
+      />
+      <label for="tag_{{ tag.id }}"> {{ tag.name }} </label>
+    </div>
+    {% endfor %}
+  </div>
+
   <div>
-    <div class="ml-auto mr-3">
+    <div>
       <a href="/users/{{ user.id }}">Cancel</a>
       <button type="submit">Create</button>
     </div>

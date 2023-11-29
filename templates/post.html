@@ -3,14 +3,21 @@ block content %}
 
 <h1>{{ post.title }}</h1>
 
+{% if post.tags %}
+<p>
+  <b>Tags - </b>
+  {% for tag in post.tags %}
+  <a href="/tags/{{ tag.id }}"><small>{{ tag.name }}</small></a>
+  {% endfor %}
+</p>
+{% endif %}
+
 <p>{{ post.content }}</p>
 <br />
 <p>By {{ post.user.full_name }} on {{ post.friendly_date }}</p>
 
 <form>
-  <button formmethod="GET" formaction="/users/{{ post.user_id }}">
-    Discard Changes
-  </button>
+  <button formmethod="GET" formaction="/users/{{ post.user_id }}">User</button>
   <button formmethod="GET" formaction="/posts/{{ post.id }}/edit">Edit</button>
   <button formmethod="POST" formaction="/posts/{{ post.id }}/delete">
     Delete
