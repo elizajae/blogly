@@ -1,0 +1,29 @@
+{% extends 'base.html' %} {% block title %}Add Post{% endblock %} {% block
+content %}
+
+<h1>Add Post for {{ user.full_name }}</h1>
+
+<form method="POST">
+  <div>
+    <label for="title">Title</label>
+    <div>
+      <input id="title" name="title" />
+    </div>
+  </div>
+
+  <div>
+    <label for="content">Content</label>
+    <div>
+      <textarea id="content" name="content"></textarea>
+    </div>
+  </div>
+
+  <div>
+    <div class="ml-auto mr-3">
+      <a href="/users/{{ user.id }}">Cancel</a>
+      <button type="submit">Create</button>
+    </div>
+  </div>
+</form>
+
+{% endblock %}

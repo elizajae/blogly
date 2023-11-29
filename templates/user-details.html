@@ -19,6 +19,21 @@
         Delete
       </button>
     </form>
+
+    <h2>Latest Posts</h2>
+
+    <ul>
+      {% for post in user.posts %}
+      <li>
+        <a href="/posts/{{ post.id}}">{{ post.title }}</a>
+        <i>{{ post.friendly_date }}</i>
+      </li>
+      {% endfor %}
+    </ul>
+
+    <p>
+      <a href="/users/{{ user.id }}/posts/new">New Post</a>
+    </p>
   </div>
 </div>
 
